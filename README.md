@@ -1,6 +1,6 @@
 # Cliplin
 
-A lightweight clipboard history manager for Linux — inspired by [Clippy](https://github.com/notpushkin/clippy) on macOS.
+A lightweight clipboard history manager for Linux — inspired by [Clippy](https://github.com/clipy/clipy) on macOS.
 
 Cliplin sits quietly in your system tray and keeps track of your last 30 clipboard entries, most-recently-used first, so you can quickly get back something you copied a few steps ago.
 
@@ -105,4 +105,4 @@ Issues and pull requests are welcome! If you'd like to help with Wayland support
 
 ## Acknowledgements
 
-Inspired by [Clippy](https://github.com/notpushkin/clippy) for macOS. Built with [pystray](https://github.com/moses-palmer/pystray) and [Pillow](https://python-pillow.org/).
+Inspired by [Clippy](https://github.com/clipy/clipy) for macOS. Built with [pystray](https://github.com/moses-palmer/pystray) and [Pillow](https://python-pillow.org/).
