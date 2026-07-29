@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Text Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Other
+*.log
+nul
+
+# build folder
+cliplin_1.0.0_amd64/
+
+# build files for debian packaging
+cliplin_1.0.0_amd64.deb
+
