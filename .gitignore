@@ -12,6 +12,7 @@ build/
 # Text Editor
 .vscode/
 .idea/
+.kilo/
 
 # OS
 .DS_Store
