@@ -1,7 +1,7 @@
 import json
 import os
 
-HISTORY_FILE = os.path.expanduser("~/.config/clipperly/history.json")
+HISTORY_FILE = os.path.expanduser("~/.config/cliplin/history.json")
 MAX_ENTRIES = 30
 
 class ClipboardHistory:

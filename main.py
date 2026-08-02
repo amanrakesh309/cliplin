@@ -1,6 +1,8 @@
 import shutil
 import sys
 
+sys.path.insert(0, "/app/lib/cliplin")
+
 from history import ClipboardHistory
 from watcher import X11Watcher
 from tray import ClipTray

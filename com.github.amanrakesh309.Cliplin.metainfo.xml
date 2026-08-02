@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.amanrakesh309.Cliplin</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Cliplin</name>
+  <summary>Lightweight clipboard history manager</summary>
+  <description>
+    <p>
+      Cliplin sits quietly in your system tray and keeps track of your last 30 clipboard entries,
+      most-recently-used first, so you can quickly retrieve text you copied recently.
+    </p>
+    <p>Features include:</p>
+    <ul>
+      <li>Keeps last 30 clipboard entries (text only)</li>
+      <li>Most-recently-used reordering</li>
+      <li>System tray drop-down menu for click-to-copy</li>
+      <li>Persistent local storage</li>
+      <li>One-click Clear History</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">com.github.amanrakesh309.Cliplin.desktop</launchable>
+  <developer_name>Aman Rakesh</developer_name>
+  <url type="homepage">https://github.com/amanrakesh309/cliplin</url>
+  <url type="bugtracker">https://github.com/amanrakesh309/cliplin/issues</url>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="1.0.0" date="2026-08-02"/>
+  </releases>
+</component>

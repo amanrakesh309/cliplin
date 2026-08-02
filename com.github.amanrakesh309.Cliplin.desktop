@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Cliplin
+Comment=Clipboard history manager
+Exec=cliplin
+Icon=com.github.amanrakesh309.Cliplin
+Categories=Utility;
+Terminal=false

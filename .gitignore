@@ -9,22 +9,25 @@ env/
 dist/
 build/
 
-# Text Editor
+# Text Editor & IDEs
 .vscode/
 .idea/
 .kilo/
+*.code-workspace
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Other
+# Logs & temporary files
 *.log
 nul
 
-# build folder
+# Flatpak build artifacts & external generator tools
+.flatpak-builder/
+build-dir/
+flatpak-builder-tools/
+
+# Debian build artifacts
 cliplin_1.0.0_amd64/
-
-# build files for debian packaging
 cliplin_1.0.0_amd64.deb
-
