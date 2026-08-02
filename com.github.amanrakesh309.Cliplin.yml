@@ -39,6 +39,8 @@ modules:
       - install -Dm644 com.github.amanrakesh309.Cliplin.desktop /app/share/applications/com.github.amanrakesh309.Cliplin.desktop
       - install -Dm644 com.github.amanrakesh309.Cliplin.metainfo.xml /app/share/metainfo/com.github.amanrakesh309.Cliplin.metainfo.xml
       - install -Dm644 resources/paper-clip.png /app/share/icons/hicolor/128x128/apps/com.github.amanrakesh309.Cliplin.png
+      
     sources:
-      - type: dir
-        path: .
+      - type: git
+        url: https://github.com/amanrakesh309/cliplin.git
+        commit: f2f0f7badd8aa853736d04f1fa6059fcf70f5c5b
