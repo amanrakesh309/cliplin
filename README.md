@@ -6,11 +6,12 @@ Cliplin sits quietly in your system tray and keeps track of your last 30 clipboa
 
 ## Features
 
-- 📋 Keeps your last **30 clipboard entries** (text only)
+- 📋 Keeps your clipboard entries (text only) with **customizable history limit**
 - 🔝 **Most-recently-used ordering** — re-copying an existing entry moves it to the top instead of duplicating it
 - 🖱️ **System tray icon** with a click-to-copy dropdown menu
+- ⚙️ **Settings Menu** to configure app behavior
 - 💾 **Persistent history** — survives restarts (stored locally, never sent anywhere)
-- 🚀 **Starts automatically on login**
+- 🚀 **Start on Login** toggle for automatic startup
 - 🧹 One-click **Clear History**
 
 ## Screenshots
@@ -29,44 +30,38 @@ The `.deb` package handles all dependencies automatically, including:
 ## Installation
 
 ### Option 1: Download the `.deb` package (recommended)
-
-1. Download the latest `.deb` from the [Releases](../../releases) page.
-2. Install it:
-   ```bash
-   sudo apt install ./cliplin_1.0.0_amd64.deb
-   ```
-3. Log out and back in (or reboot) — Cliplin will start automatically and appear in your system tray.
-
-You can also launch it manually anytime from your application launcher, or run:
-```bash
-gtk-launch cliplin
-```
-
+// ...existing code...
 ### Option 2: Build from source
+// ...existing code...
+// ...existing code...
+> **Important**: The `--system-site-packages` flag is required so the virtual environment can access the system-installed GTK bindings (`gi`), which cannot be installed via pip.
 
+### Option 3: Packaging for Distribution
+
+If you want to package Cliplin for other users, you can use the following methods:
+
+#### Creating a `.deb` package
+The project includes a `build-dir/` and a `.yml` configuration for packaging. You can use `dpkg-deb` to build the package:
 ```bash
-git clone https://github.com/<your-username>/cliplin.git
-cd cliplin
-python3 -m venv venv --system-site-packages
-source venv/bin/activate
-pip install -r requirements.txt
-python3 main.py
+dpkg-deb --build build-dir cliplin_1.0.0_amd64.deb
 ```
 
-> The `--system-site-packages` flag is required so the virtual environment can access the system-installed GTK bindings (`gi`), which cannot be installed via pip.
-
-Make sure `xclip` and the AppIndicator GTK bindings are installed on your system first:
-```bash
-sudo apt install xclip python3-gi gir1.2-ayatanaappindicator3-0.1 gir1.2-gtk-3.0
-```
+#### Creating an AppImage
+To create a portable AppImage, it is recommended to use `appimagetool`. 
+1. Prepare an `AppDir` structure containing the Python interpreter, dependencies, and the `cliplin` source.
+2. Use a tool like `python-appimage` or manually bundle the `venv` into the AppDir.
+3. Run `appimagetool AppDir Cliplin.AppImage`.
 
 ## Usage
+// ...existing code...
+
 
 - **Copy anything** as normal (Ctrl+C, right-click → Copy, etc.) — Cliplin picks it up automatically.
-- **Click the tray icon** to see your last 30 copied items, most recent at the top.
+- **Right-click the tray icon** to see your copied items, most recent at the top.
 - **Click any entry** to copy it back to your clipboard, ready to paste.
+- **Settings**: Access the settings menu from the tray icon to change the maximum number of history entries or toggle "Start on Login".
 - **Clear History** wipes everything.
-- **Quit** stops the app (it will restart automatically on your next login).
+- **Quit** stops the app.
 
 ## How it works
 

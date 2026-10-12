@@ -1,11 +1,12 @@
 import json
 import os
+from config import ConfigManager
 
 HISTORY_FILE = os.path.expanduser("~/.config/cliplin/history.json")
-MAX_ENTRIES = 30
 
 class ClipboardHistory:
     def __init__(self):
+        self.config = ConfigManager()
         self.entries = []  # most recent first
         self.load()
 
@@ -16,7 +17,9 @@ class ClipboardHistory:
         if text in self.entries:
             self.entries.remove(text)  # dedup, move to top
         self.entries.insert(0, text)
-        self.entries = self.entries[:MAX_ENTRIES]
+        
+        max_entries = self.config.get("max_entries")
+        self.entries = self.entries[:max_entries]
         self.save()
 
     def get_all(self):
