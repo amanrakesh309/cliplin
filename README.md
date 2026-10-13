@@ -16,7 +16,7 @@ Cliplin sits quietly in your system tray and keeps track of your last 30 clipboa
 
 ## Screenshots
 
-> _Add a screenshot of the tray menu here, e.g. `![Cliplin tray menu](docs/screenshot.png)`_
+![Cliplin tray menu](docs/screenshot.png)
 
 ## Requirements
 
@@ -25,6 +25,7 @@ Cliplin currently supports **X11-based Linux distributions** (Debian, Ubuntu, Li
 The `.deb` package handles all dependencies automatically, including:
 - Python 3
 - `xclip`
+- `xdotool` (for automatic pasting)
 - GTK / AppIndicator bindings (`python3-gi`, `gir1.2-ayatanaappindicator3-0.1`)
 
 ## Installation
@@ -33,8 +34,12 @@ The `.deb` package handles all dependencies automatically, including:
 // ...existing code...
 ### Option 2: Build from source
 // ...existing code...
-// ...existing code...
 > **Important**: The `--system-site-packages` flag is required so the virtual environment can access the system-installed GTK bindings (`gi`), which cannot be installed via pip.
+
+Make sure `xclip`, `xdotool`, and the AppIndicator GTK bindings are installed on your system first:
+```bash
+sudo apt install xclip xdotool python3-gi gir1.2-ayatanaappindicator3-0.1 gir1.2-gtk-3.0
+```
 
 ### Option 3: Packaging for Distribution
 
@@ -101,3 +106,4 @@ Issues and pull requests are welcome! If you'd like to help with Wayland support
 ## Acknowledgements
 
 Inspired by [Clipy](https://github.com/clipy/clipy) for macOS. Built with [pystray](https://github.com/moses-palmer/pystray) and [Pillow](https://python-pillow.org/).
+
