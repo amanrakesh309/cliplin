@@ -156,18 +156,29 @@ class ClipTray:
         
         current_max = self.config.get("max_entries")
         current_boot = self.config.get("start_on_boot")
+        current_theme = self.config.get("theme")
         
         dialog = tk.Toplevel(root)
         dialog.title("Settings")
-        dialog.geometry("300x250")
+        dialog.geometry("300x300")
         
-        tk.Label(dialog, text="Maximum History Entries:").pack(pady=(10, 0))
+        # Theme colors
+        bg_color = "#333333" if current_theme == "dark" else "#f0f0f0"
+        fg_color = "white" if current_theme == "dark" else "black"
+        dialog.configure(bg=bg_color)
+        
+        tk.Label(dialog, text="Maximum History Entries:", bg=bg_color, fg=fg_color).pack(pady=(10, 0))
         entry = tk.Entry(dialog)
         entry.insert(0, str(current_max))
         entry.pack(pady=5)
         
         boot_var = tk.BooleanVar(value=current_boot)
-        tk.Checkbutton(dialog, text="Start on Login", variable=boot_var).pack(pady=10)
+        tk.Checkbutton(dialog, text="Start on Login", variable=boot_var, bg=bg_color, fg=fg_color, selectcolor=bg_color).pack(pady=10)
+        
+        theme_var = tk.StringVar(value=current_theme)
+        tk.Label(dialog, text="Theme:", bg=bg_color, fg=fg_color).pack(pady=(10, 0))
+        theme_menu = ttk.Combobox(dialog, textvariable=theme_var, values=["light", "dark"], state="readonly")
+        theme_menu.pack(pady=5)
         
         def save_settings():
             try:
@@ -175,6 +186,7 @@ class ClipTray:
                 if new_max > 0:
                     self.config.set("max_entries", new_max)
                     self.config.set("start_on_boot", boot_var.get())
+                    self.config.set("theme", theme_var.get())
                     
                     # Trim history if new limit is smaller
                     self.history.entries = self.history.entries[:new_max]
@@ -186,9 +198,9 @@ class ClipTray:
                     dialog.destroy()
                     root.destroy()
                 else:
-                    tk.Label(dialog, text="Please enter a positive number", fg="red").pack()
+                    tk.Label(dialog, text="Please enter a positive number", fg="red", bg=bg_color).pack()
             except ValueError:
-                tk.Label(dialog, text="Invalid number", fg="red").pack()
+                tk.Label(dialog, text="Invalid number", fg="red", bg=bg_color).pack()
 
         tk.Button(dialog, text="Save", command=save_settings).pack(pady=20)
         

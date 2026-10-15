@@ -5,6 +5,7 @@ CONFIG_FILE = os.path.expanduser("~/.config/cliplin/config.json")
 DEFAULT_CONFIG = {
     "max_entries": 20,
     "start_on_boot": False,
+    "theme": "light",
 }
 
 class ConfigManager:
